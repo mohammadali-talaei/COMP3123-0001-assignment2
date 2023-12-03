@@ -1,0 +1,11 @@
+{
+  "name": "assignment2",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node backend/server.js",
+    "heroku-postbuild": "npm run build --prefix frontend && npm install --prefix backend && npm run build --prefix backend"
+  },
+  "engines": {
+    "node": "14.x"
+  }
+}
