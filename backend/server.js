@@ -4,11 +4,16 @@ const userRoute = require("./routes/user");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv").config();
 const db = require("./db");
+const path = require('path')
 db();
 
 const app = express();
-// const apiV1=express()
-// app.use(cors())
+
+app.use(express.static(path.join(__dirname, '../frontend/my-app/public')));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/my-app/public', 'index.html'));
+});
+
 const cors = require("cors");
 app.use(cors());
 
